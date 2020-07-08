@@ -2,9 +2,13 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Usuario extends Model {
+//  implements \Illuminate\Contracts\Auth\Authenticatable
+class Usuario extends Authenticatable {
+
+  // protected $fillable = ['nickname', 'password', 'email', 'rol_id', 'institucion_id'];
+  protected $guarded = ['id'];
 
   // Belonging
   public function rol(){
@@ -12,5 +16,8 @@ class Usuario extends Model {
   }
   public function institucion(){
     return $this->belongsTo('App\Rol');
+  }
+  public function descripcion_rol(){
+    return $this->rol->nombre;
   }
 }
