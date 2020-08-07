@@ -15,7 +15,7 @@ class Usuario extends Authenticatable {
     return $this->belongsTo('App\Rol');
   }
   public function institucion(){
-    return $this->belongsTo('App\Rol');
+    return $this->belongsTo('App\Institucion');
   }
   public function descripcion_rol(){
     return $this->rol->nombre;

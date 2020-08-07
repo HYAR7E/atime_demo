@@ -15,7 +15,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name("index");
 Route::get('/home', 'HomeController@index')->name("home");
-Route::get('/nav', 'IntraController@index')->name("intra");
+
+Route::prefix('nav')->group(function(){
+  Route::get('/', 'IntraController@index')->name("intra");
+  Route::get('/configuracion', 'IntraController@configuracion')->name("config");
+  Route::get('/examenes', 'IntraController@examenes')->name("av-test");
+  Route::get('/cursos', 'IntraController@cursos')->name("course");
+  Route::get('/curso/{id}', 'IntraController@detallecurso')->name("course-detail");
+  Route::get('/rendimiento', 'IntraController@rendimiento')->name("performance");
+  Route::get('/perfil/{id}', 'IntraController@perfil')->name("profile")->where('id', '[0-9]+');
+});
 
 // Authentication routes
 Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout')->name("logout");
