@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class TemaXTest extends Model {
 
+  protected $guarded = ['id'];
+
   // Belonging
   public function tema(){
     return $this->belongsTo('App\Tema');

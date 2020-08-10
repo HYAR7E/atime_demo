@@ -39,6 +39,6 @@
       @yield('t-content')
     </div>
   </body>
-  <script src="{{asset('js/app.js')}}"></script>
+  <!-- <script src="{{asset('js/app.js')}}"></script> -->
   <script src="{{asset('material-pro/horizontal/js/custom.min.js')}}"></script> <!-- controls loader -->
 </html>

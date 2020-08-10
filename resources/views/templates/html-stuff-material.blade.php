@@ -18,17 +18,9 @@
   @yield('t-css')
   <!-- JAVASCRIPT -->
   <script src="{{ asset('/material-pro/assets/plugins/jquery/jquery.min.js')}}"></script>
-  <!-- JS FILES -->
-  @yield('t-js-el')
-  <!-- CUSTOM JS -->
-  <script>
-  $(document).ready(function(){
-    @yield('t-js-code')
-  })
-  </script>
 </head>
 
-<body class="fix-header fix-sidebar card-no-border">
+<body class="card-no-border {{$hiddennav??''}}">
   <!-- Preloader -->
   <div class="preloader">
     <svg class="circular" viewBox="25 25 50 50">
@@ -60,6 +52,14 @@
   <!-- Style switcher -->
   <!-- ============================================================== -->
   <script src="{{ asset('/material-pro/assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
+  <!-- JS FILES -->
+  @yield('t-js-el')
+  <!-- CUSTOM JS -->
+  <script>
+  $(document).ready(function(){
+    @yield('t-js-code')
+  })
+  </script>
 </body>
 
 </html>

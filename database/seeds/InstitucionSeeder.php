@@ -10,7 +10,7 @@ class InstitucionSeeder extends Seeder {
   * @return void
   */
   public function run(){
-    Institucion::create(['nombre' => 'UNHEVAL', 'contacto' => '983098487']);
-    Institucion::create(['nombre' => 'UDH', 'contacto' => '912054887']);
+    Institucion::create(['id' => 1, 'nombre' => 'UNHEVAL', 'contacto' => '983098487']);
+    Institucion::create(['id' => 2, 'nombre' => 'UDH', 'contacto' => '912054887']);
   }
 }

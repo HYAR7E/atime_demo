@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Usuario extends Authenticatable {
 
   // protected $fillable = ['nickname', 'password', 'email', 'rol_id', 'institucion_id'];
-  protected $guarded = ['id'];
+  protected $guarded = [];
 
   // Belonging
   public function rol(){
@@ -19,5 +19,8 @@ class Usuario extends Authenticatable {
   }
   public function descripcion_rol(){
     return $this->rol->nombre;
+  }
+  public function descripcion_institucion(){
+    return $this->institucion->nombre;
   }
 }

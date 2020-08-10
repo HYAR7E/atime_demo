@@ -4,6 +4,14 @@
 @yield('title', 'Intranet')
 @endsection
 
+@section('t-js-el')
+@yield('js-el')
+@endsection
+
+@section('t-js-code')
+@yield('js-code')
+@endsection
+
 @section('t-css')
 @yield('css')
 <style media="screen">
@@ -99,15 +107,13 @@
     <nav class="sidebar-nav">
       <ul id="sidebarnav">
         <li class="nav-small-cap">Paginas</li>
-        <li>
-          <a href="{{route('av-test')}}" aria-expanded="false"><i class="fas fa-tasks"></i><span class="hide-menu"> Examenes</span></a>
-        </li>
-        <li>
-          <a href="{{route('course')}}" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu"> Cursos</span></a>
-        </li>
-        <li>
-          <a href="{{route('performance')}}" aria-expanded="false"><i class="mdi mdi-chart-areaspline"></i><span class="hide-menu"> Rendimiento</span></a>
-        </li>
+        <li><a href="{{route('admin-rule_usuarios')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Manejar Usuarios</span></a></li>
+        <li><a href="{{route('admin-rule_test')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Manejar Test</span></a></li>
+        <li><a href="{{route('admin-create_institucion')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Institucion</span></a></li>
+        <li><a href="{{route('admin-create_rol')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Rol</span></a></li>
+        <li><a href="{{route('admin-create_curso')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Curso</span></a></li>
+        <li><a href="{{route('admin-create_tema')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Tema</span></a></li>
+        <li><a href="{{route('admin-create_test')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Test</span></a></li>
       </ul>
     </nav>
     <!-- End Sidebar navigation -->
@@ -116,7 +122,7 @@
       <!-- item-->
       <a href="{{route('config')}}" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
       <!-- item-->
-      <a href="{{route('admin-rule')}}" class="link" data-toggle="tooltip" title="Admin"><i class="fas fa-user-secret"></i></a>
+      <a href="{{route('intra')}}" class="link" data-toggle="tooltip" title="Intranet"><i class="fas fa-user"></i></a>
       <!-- item-->
       <a href="{{route('logout')}}" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
     </div>

@@ -6,11 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Test extends Model {
 
+  protected $guarded = ['id'];
+
   // Belonging
-  public function test(){
-    return $this->belongsTo('App\Test');
+  public function cursos(){
+    return $this->hasMany('App\CursoXTest');
+  }
+  public function temas(){
+    return $this->hasMany('App\TemaXTest');
   }
   public function autor(){
-    return $this->belongsTo('App\Usuario', 'user_id');
+    return $this->belongsTo('App\Usuario', 'autor_id');
+  }
+  public function preguntas(){
+    return $this->hasMany('App\Pregunta');
   }
 }

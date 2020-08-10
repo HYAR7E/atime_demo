@@ -15,21 +15,21 @@ class IntraController extends Controller {
   }
   // Pages
   public function configuracion(){
-    return view('configuracion');
+    return view('intra.configuracion');
   }
   public function examenes(){
-    return view('examenes');
+    return view('intra.examenes');
   }
   public function cursos(){
-    return view('cursos')->with(['cursos' => Curso::all()]);
+    return view('intra.cursos')->with(['cursos' => Curso::all()]);
   }
   public function detallecurso(Request $req, $id){
-    return view('detallecurso')->with(['curso' => Curso::get($id)]);
+    return view('intra.detallecurso')->with(['curso' => Curso::get($id)]);
   }
   public function rendimiento(){
-    return view('rendimiento');
+    return view('intra.rendimiento');
   }
   public function perfil(Request $req, $id){
-    return view('perfil');
+    return view('intra.perfil');
   }
 }

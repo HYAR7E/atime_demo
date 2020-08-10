@@ -5,5 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Rol extends Model {
+
+  protected $fillable = ['id', 'nombre'];
+
   public $timestamps = false;
 }

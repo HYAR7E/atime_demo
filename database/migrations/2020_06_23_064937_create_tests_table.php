@@ -8,9 +8,10 @@ class CreateTestsTable extends Migration {
   public function up(){
     Schema::create('tests', function(Blueprint $table){
       $table->id();
+      $table->string('titulo');
       $table->string('descripcion');
-      $table->time('tiempo_limite', 0);
-      $table->string('email');
+      $table->time('tiempo_limite', 0)->nullable();
+      $table->boolean('publicado')->default(false);
       $table->foreignId('autor_id');
 
       // Others

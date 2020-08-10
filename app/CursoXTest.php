@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class CursoXTest extends Model {
 
+  protected $guarded = ['id'];
+
   // Belonging
   public function curso(){
     return $this->belongsTo('App\Curso');

@@ -8,7 +8,7 @@ class CreateCursosTable extends Migration {
   public function up(){
     Schema::create('cursos', function(Blueprint $table){
       $table->id();
-      $table->string('nombre');
+      $table->string('nombre')->unique();
       $table->timestamps();
     });
   }
