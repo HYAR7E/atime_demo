@@ -10,10 +10,18 @@ class CursoSeeder extends Seeder {
   * @return void
   */
   public function run(){
-    Curso::create(['nombre' => 'algebra']);
-    Curso::create(['nombre' => 'historia']);
-    Curso::create(['nombre' => 'programacion I']);
-    Curso::create(['nombre' => 'programacion II']);
-    Curso::create(['nombre' => 'arquitectura de software I']);
+    Curso::create(['nombre' => 'Programación I']);
+    Curso::create(['nombre' => 'Programación II']);
+    Curso::create(['nombre' => 'Programación III']);
+    Curso::create(['nombre' => 'Ingenieria de software I']);
+    Curso::create(['nombre' => 'Ingenieria de software II']);
+    Curso::create(['nombre' => 'Psicologia social I']);
+    Curso::create(['nombre' => 'Psicologia social II']);
+    Curso::create(['nombre' => 'Personalidad I']);
+    Curso::create(['nombre' => 'Psicoanalisis']);
+    Curso::create(['nombre' => 'Filosofia']);
+    Curso::create(['nombre' => 'Comportamiento I']);
+    Curso::create(['nombre' => 'Literatura I']);
+    Curso::create(['nombre' => 'Literatura II']);
   }
 }

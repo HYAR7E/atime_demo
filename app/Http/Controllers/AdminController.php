@@ -228,13 +228,15 @@ class AdminController extends Controller {
     $data = $req->post();
     // Validate data
     $test = false;
-    if(preg_match('/^[0-9]+$/', $data['test-id'])){
-      $test = Test::find($data['test-id']);
-      $test->publicado = true;
-      $test->save();
-    }
+    $test = Test::find($data['test-id']);
+
+    // If test has no questions
+    if($test->count_q()<1) return $this->rule_test()->with('msg', false);
+
+    $test->publicado = true;
+    $test->save();
 
     // Create test
-    return $this->rule_test()->with('msg', !!$test);
+    return redirect()->route('intra')->with('msg', true);
   }
 }

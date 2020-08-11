@@ -100,7 +100,7 @@
       <ul id="sidebarnav">
         <li class="nav-small-cap">Paginas</li>
         <li>
-          <a href="{{route('av-test')}}" aria-expanded="false"><i class="fas fa-tasks"></i><span class="hide-menu"> Tests</span></a>
+          <a href="{{route('list-test')}}" aria-expanded="false"><i class="fas fa-tasks"></i><span class="hide-menu"> Tests</span></a>
         </li>
         <li>
           <a href="{{route('course')}}" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu"> Cursos</span></a>

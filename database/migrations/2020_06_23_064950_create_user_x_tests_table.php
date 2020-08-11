@@ -8,6 +8,7 @@ class CreateUserXTestsTable extends Migration {
   public function up(){
     Schema::create('user_x_tests', function(Blueprint $table){
       $table->id();
+      $table->float('nota')->nullable();
       $table->time('duracion', 0);
       $table->boolean('estado')->default(false);
       $table->foreignId('test_id');

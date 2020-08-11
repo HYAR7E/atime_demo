@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Respuesta extends Model {
 
+  protected $guarded = ['id'];
+
   // Belonging
   public function userxtest(){
     return $this->belongsTo('App\UserXTest');

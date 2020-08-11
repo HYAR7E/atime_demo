@@ -14,6 +14,13 @@
   <div class="col-lg-12">
     <div class="card">
       <div class="card-body">
+        @if(isset($msg))
+        <div class="message {{$msg ? 'has-success':'has-danger'}}">
+          <div class="form-control-feedback">{{$msg ? 'Publicado correctamente':'No se pudo publicar el test, verifique que tenga al menos una pregunta'}}</div>
+          <br>
+        </div>
+        @endif
+
         <h4 class="card-title">Tests</h4>
         <h6 class="card-subtitle">{{count($tests)}} registros</h6>
         <div class="table-responsive">
@@ -23,7 +30,7 @@
                 <th>ID</th>
                 <th>Titulo</th>
                 <th>Descripcion</th>
-                <th>Tiempo limite</th>
+                <th>Cantidad de preguntas</th>
                 <th>Autor</th>
                 <th>Cursos</th>
                 <th>Temas</th>
@@ -37,7 +44,7 @@
                 <td>{{$t->id}}</td>
                 <td>{{$t->titulo}}</td>
                 <td>{{$t->descripcion}}</td>
-                <td>{{$t->tiempo_limite}}</td>
+                <td>{{$t->count_q()}}</td>
                 <td>{{$t->autor->nickname}}</td>
                 <td>
                   @foreach($t->cursos as $cxt)
@@ -53,7 +60,7 @@
                   @if($t->publicado)
                   <span class="badge badge-primary">Publicado</span>
                   @else
-                  <form class="" action="{{route('ep_admin-publish_test')}}" method="POST">
+                  <form action="{{route('ep_admin-publish_test')}}" method="POST">
                     {{csrf_field()}}
                     <input type="hidden" name="test-id" value="{{$t->id}}">
                     <button type="submit" class="btn waves-effect waves-light btn-rounded btn-outline-primary">Publicar</button>

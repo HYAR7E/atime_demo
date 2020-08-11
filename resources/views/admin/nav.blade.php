@@ -5,7 +5,6 @@
 @endsection
 
 @section('t-js-el')
-<script src="{{asset('material-pro/assets/material/js/jquery.slimscroll.js')}}"></script>
 @yield('js-el')
 @endsection
 

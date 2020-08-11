@@ -56,9 +56,7 @@
   @yield('t-js-el')
   <!-- CUSTOM JS -->
   <script>
-  $(document).ready(function(){
     @yield('t-js-code')
-  })
   </script>
 </body>
 

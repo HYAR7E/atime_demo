@@ -20,12 +20,14 @@ Route::get('/home', 'HomeController@index')->name("home");
 Route::prefix('nav')->group(function(){
   Route::get('/', 'IntraController@index')->name("intra");
   Route::get('/configuracion', 'IntraController@configuracion')->name("config");
-  Route::get('/tests', 'IntraController@tests')->name("av-test");
+  Route::get('/tests', 'IntraController@tests')->name("list-test");
   Route::get('/test/do/{id}', 'IntraController@do_test')->name("do-test");
   Route::get('/cursos', 'IntraController@cursos')->name("course");
   Route::get('/curso/{id}', 'IntraController@detallecurso')->name("course-detail");
   Route::get('/rendimiento', 'IntraController@rendimiento')->name("performance");
   Route::get('/perfil/{id}', 'IntraController@perfil')->name("profile")->where('id', '[0-9]+');
+  // POST
+  Route::post('/test/do/{id}', 'IntraController@ep_do_test')->name("ep_alumno-do_test");
 });
 // Admin
 Route::prefix('admin_rules')->group(function(){
@@ -49,7 +51,7 @@ Route::prefix('admin_rules')->group(function(){
   Route::post('/crear/test', 'AdminController@ep_create_test')->name("ep_admin-create_test");
   Route::post('/editar/test/{id}', 'AdminController@ep_edit_test')->name("ep_admin-edit_test");
   Route::post('/editar/test/{id}/pregunta', 'AdminController@ep_edit_test_question')->name("ep_admin-edit_test_question");
-  Route::post('/test/publicar', 'AdminController@ep_publish_test')->name("ep_admin-publish_test");
+  Route::post('/test', 'AdminController@ep_publish_test')->name("ep_admin-publish_test");
 });
 
 // Authentication routes

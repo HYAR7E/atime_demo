@@ -22,7 +22,8 @@
             </h4>
             <h6 class="card-subtitle">{{ucfirst($t->descripcion)}}</h6>
             <small>Veces realizado: {{ ucfirst($t->count_tries()) }}</small> |
-            <small>Publicado el {{ ucfirst($t->updated_at) }}</small>
+            <small>Publicado el {{ ucfirst($t->updated_at) }}</small> |
+            <small>Contiene {{ ucfirst($t->count_q()) }} preguntas</small>
 
             <div class="">
               <small class="text-muted pt-4">Tags: </small>

@@ -56,7 +56,7 @@ $('#radio-abierta')[0].onchange = () => {
           </div>
           <div class="form-group col-lg-6 inline no-horizontal-space">
             <label>Tiempo limite: </label>
-            <input type="time" class="form-control form-control-line" name="q-tiempo_limite">
+            <input type="time" class="form-control form-control-line" name="q-tiempo_limite" step="1" value="00:01:30">
             <small><b>Opcional</b>  tiempo limite para resolver la pregunta.</small>
             <small>Solo funciona si se establece un orden imperativo al resolver el examen.</small>
           </div>

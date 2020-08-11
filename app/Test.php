@@ -21,6 +21,9 @@ class Test extends Model {
   public function preguntas(){
     return $this->hasMany('App\Pregunta');
   }
+  public function count_q(){
+    return Pregunta::where('test_id', $this->id)->count();
+  }
   public function count_tries(){
     return UserXTest::where('test_id', $this->id)->count();
   }
