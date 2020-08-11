@@ -40,19 +40,21 @@ class Usuario extends Authenticatable {
       ->get();
   }
   public function average_performance_time(){
-    $queryset = UserXTest::select('respuestas.duracion')
+    $queryset = UserXTest::select('respuestas.duracion', 'respuestas.created_at', DB::raw('TIME(respuestas.created_at) as time'))
       ->where('user_id', $this->id)
       ->join('preguntas', 'preguntas.test_id', '=', 'user_x_tests.test_id')
       ->join('respuestas', 'respuestas.pregunta_id', '=', 'preguntas.id')
-      ->get();
+      ->distinct('respuestas.id')->orderBy('respuestas.created_at')->get();
 
     $array_duracion = [];
+    $i=0;
     foreach($queryset as $q){
+      $i++;
       // Convertir a segundos (hora, minuto, segundo)
       $duracion = (int) substr($q['duracion'], -2);
       $duracion += (int) substr($q['duracion'], -5, 2) *60;
       $duracion += (int) substr($q['duracion'], 0, 2) *3600;
-      array_push($array_duracion, $duracion);
+      array_push($array_duracion, ['tiempo' => $duracion, 'i' => $i]);
     }
     $array_duracion = json_encode($array_duracion);
     return $array_duracion;

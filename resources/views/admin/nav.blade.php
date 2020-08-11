@@ -121,8 +121,10 @@
       <div class="sidebar-footer">
         <!-- item-->
         <a href="{{route('config')}}" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+        @if(Auth::user()->id!=1)
         <!-- item-->
         <a href="{{route('intra')}}" class="link" data-toggle="tooltip" title="Intranet"><i class="fas fa-user"></i></a>
+        @endif
         <!-- item-->
         <a href="{{route('logout')}}" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
       </div>

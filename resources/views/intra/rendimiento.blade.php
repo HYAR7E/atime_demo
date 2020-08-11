@@ -8,6 +8,8 @@
 
 @section('js-el')
 <script src="{{asset('material-pro/assets/plugins/gauge/gauge.min.js')}}"></script>
+<script src="{{asset('material-pro/assets/plugins/morrisjs/morris.js')}}"></script>
+<script src="{{asset('material-pro/assets/plugins/raphael/raphael.min.js')}}"></script>
 <script>
 // Intentos
 var opts = {
@@ -34,16 +36,22 @@ gauge.animationSpeed = 45; // set animation speed (32 is default value)
 gauge.set({{Auth::user()->average_performance_tries()[0]->av}}); // set actual value
 
 // Tiempo
-$("#av-performance-time").sparkline(
-  {{Auth::user()->average_performance_time()}}, {
-  type: 'line',
-  width: '100%',
-  height: '50',
-  lineColor: '#fff',
-  fillColor: '#1e88e5',
-  maxSpotColor: '#1e88e5',
-  highlightLineColor: 'rgba(0, 0, 0, 0.2)',
-  highlightSpotColor: '#1e88e5'
+Morris.Area({
+  element: 'av-performance-time2',
+  data: JSON.parse("{{Auth::user()->average_performance_time()}}".replace(/&quot;/g,'"')),
+  xkey: 'i',
+  ykeys: ['tiempo'],
+  labels: ['Tiempo de respuesta'],
+  pointSize: 2,
+  fillOpacity: 0,
+  pointStrokeColors:['#55ce63'],
+  behaveLikeLine: true,
+  gridLineColor: '#e0e0e0',
+  lineWidth: 2,
+  hideHover: 'auto',
+  lineColors: ['blue'],
+  parseTime: false,
+  resize: true
 });
 </script>
 @endsection
@@ -51,6 +59,10 @@ $("#av-performance-time").sparkline(
 @section('content')
 <div class="row">
   <div class="col-12">
+    <pre hidden>
+      TESTING
+      {{Auth::user()->average_performance_time()}}
+    </pre>
 
     <div class="row">
       <!-- widget -->
@@ -82,15 +94,24 @@ $("#av-performance-time").sparkline(
         </div>
       </div>
       <!-- Column -->
-      <div class="col-lg-4 col-md-6">
-        <div class="card card-inverse card-info">
+      <div class="col-lg-12 col-md-12">
+        <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Tiempo de respuesta</h4>
-            <h6 class="card-subtitle">promedio</h6>
-            <div id="av-performance-time"><canvas width="200" height="50" style="display: inline-block; width: 200.25px; height: 50px; vertical-align: top;"></canvas></div>
+            <div class="d-md-flex no-block align-items-center">
+              <h4 class="card-title">Tiempo de respuesta promedio general</h4>
+              <div class="ml-auto">
+                <ul class="list-inline text-right mb-0">
+                  <li class="list-inline-item">
+                    <h5 class="mb-0"><i class="fa fa-circle mr-1 text-info"></i>Tiempo</h5>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div id="av-performance-time2"></div>
           </div>
         </div>
       </div>
+      <!-- Column -->
     </div>
 
   </div>

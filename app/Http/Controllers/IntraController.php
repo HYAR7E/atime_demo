@@ -15,6 +15,7 @@ class IntraController extends Controller {
   }
 
   public function index(){
+    if(Auth::user()->id==1) return redirect()->route('admin-rule');
     return view('templates.nav');
   }
   // Pages
