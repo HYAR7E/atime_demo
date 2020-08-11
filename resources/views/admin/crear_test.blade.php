@@ -1,4 +1,4 @@
-@extends('admin.nav')
+@extends('templates.nav')
 @section('title', 'Crear test')
 
 @section('css')
@@ -7,10 +7,9 @@
 
 @section('js-el')
 <script src="{{asset('material-pro/assets/plugins/select2/dist/js/select2.full.min.js')}}"></script>
-@endsection
-
-@section('js-code')
+<script>
 $('.select2').select2();
+</script>
 @endsection
 
 @section('content')
@@ -19,6 +18,13 @@ $('.select2').select2();
   <div class="col-8">
     <div class="card">
       <div class="card-body">
+        @if(isset($msg))
+        <div class="message {{$msg ? 'has-success':'has-danger'}}">
+          <div class="form-control-feedback">{{$msg ? 'Creado correctamente':'No se pudo crear el test'}}</div>
+        </div>
+        <br>
+        @endif
+
         <form class="" action="{{ route('ep_admin-create_test') }}" method="POST">
           <h4 class="card-title"><u>Nuevo Test</u> </h4>
           <h6 class="card-subtitle">No se permite el uso de caracteres especiales</h6>
@@ -36,7 +42,7 @@ $('.select2').select2();
           </div>
           <div class="form-group">
             <label>Tiempo limite: </label>
-            <input type="time" class="form-control form-control-line" name="test-tiempo_limite">
+            <input type="time" class="form-control form-control-line" name="test-tiempo_limite" step="1">
             <small>Opcional: tiempo limite para resolver el test.</small>
           </div>
 
@@ -62,12 +68,6 @@ $('.select2').select2();
 
           <button type="submit" class="btn btn-info waves-effect waves-light mr-2">Crear</button>
         </form> <!-- end form -->
-        <br>
-        @if(isset($msg))
-        <div class="message {{$msg ? 'has-success':'has-danger'}}">
-          <div class="form-control-feedback">{{$msg ? 'Creado correctamente':'No se pudo crear el test'}}</div>
-        </div>
-        @endif
       </div>
     </div>
   </div>

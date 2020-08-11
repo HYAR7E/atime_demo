@@ -34,15 +34,17 @@ Route::prefix('admin_rules')->group(function(){
   Route::get('/', 'AdminController@index')->name("admin-rule");
   Route::get('/usuarios', 'AdminController@rule_usuarios')->name("admin-rule_usuarios");
   Route::get('/test', 'AdminController@rule_test')->name("admin-rule_test");
+  Route::get('/my/test', 'AdminController@rule_test_docente')->name("docente-rule_test");
   Route::get('/test/{id}/preview', 'AdminController@preview_test')->name("admin-preview_test");
+  Route::get('/my/test/{id}/preview', 'AdminController@preview_test_docente')->name("docente-preview_test");
   // Form && View
   Route::get('/crear/curso', 'AdminController@create_curso')->name("admin-create_curso");
   Route::get('/crear/tema', 'AdminController@create_tema')->name("admin-create_tema");
   Route::get('/crear/institucion', 'AdminController@create_institucion')->name("admin-create_institucion");
   Route::get('/crear/rol', 'AdminController@create_rol')->name("admin-create_rol");
-  Route::get('/crear/test', 'AdminController@create_test')->name("admin-create_test");
-  Route::get('/editar/test/{id}', 'AdminController@edit_test')->name("admin-edit_test");
-  Route::get('/editar/test/{id}/pregunta', 'AdminController@edit_test_question')->name("admin-edit_test_question");
+  Route::get('/crear/test', 'AdminController@create_test')->name("docente-create_test");
+  Route::get('/editar/test/{id}', 'AdminController@edit_test')->name("docente-edit_test");
+  Route::get('/editar/test/{id}/pregunta', 'AdminController@edit_test_question')->name("docente-edit_test_question");
   // POST
   Route::post('/crear/curso', 'AdminController@ep_create_curso')->name("ep_admin-create_curso");
   Route::post('/crear/tema', 'AdminController@ep_create_tema')->name("ep_admin-create_tema");

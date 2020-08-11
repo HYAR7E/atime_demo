@@ -1,4 +1,4 @@
-@extends('admin.nav')
+@extends('templates.nav')
 @section('title', 'Administrar tests')
 
 @section('css')
@@ -31,9 +31,10 @@
                 <th>Titulo</th>
                 <th>Descripcion</th>
                 <th>Cantidad de preguntas</th>
-                <th>Autor</th>
                 <th>Cursos</th>
                 <th>Temas</th>
+                <th>Publicar</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -43,7 +44,6 @@
                 <td>{{$t->titulo}}</td>
                 <td>{{$t->descripcion}}</td>
                 <td>{{$t->count_q()}}</td>
-                <td>{{$t->autor->nickname}}</td>
                 <td>
                   @foreach($t->cursos as $cxt)
                   <span class="badge badge-info">{{$cxt->curso->nombre}}</span>
@@ -53,6 +53,31 @@
                   @foreach($t->temas as $txt)
                   <span class="badge badge-info">{{$txt->tema->nombre}}</span>
                   @endforeach
+                </td>
+                <td>
+                  @if($t->publicado)
+                  <span class="badge badge-primary">Publicado</span>
+                  @else
+                  <form action="{{route('ep_admin-publish_test')}}" method="POST">
+                    {{csrf_field()}}
+                    <input type="hidden" name="test-id" value="{{$t->id}}">
+                    <button type="submit" class="btn waves-effect waves-light btn-rounded btn-outline-primary">Publicar</button>
+                  </form>
+                  @endif
+                </td>
+                <td>
+                  <div class="btn-group">
+                    <form action="{{route('docente-edit_test', ['id' => $t->id])}}" method="GET">
+                      <button type="submit" class="btn btn-warning">Editar</button>
+                    </form>
+                    <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="sr-only"></span>
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="{{route('docente-edit_test_question', ['id' => $t->id])}}">Agregar pregunta</a>
+                      <a class="dropdown-item" href="{{route('docente-preview_test', ['id' => $t->id])}}">Previsualizar</a>
+                    </div>
+                  </div>
                 </td>
               </tr>
               @endforeach

@@ -1,4 +1,4 @@
-@extends('admin.nav')
+@extends('templates.nav')
 @section('title', 'Agregar pregunta')
 
 @section('css')

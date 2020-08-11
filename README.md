@@ -7,16 +7,15 @@ Para acceder al demo ingrese a la siguiente dirección: http://32cb65c99b6f.ngro
 **El link anterior es dinámico y será actualizado a medida que cambie** (periodos de 12 horas aprox.)
 
 ### Instalacion
-Pasos para la correcta instalación y ejecución del proyecto.
-Ejecutar los siguientes pasos desde una interfaz de linea de comandos
-Como requisitos se debe tener instalado los siguientes programas:
+Pasos para la correcta instalación y ejecución del proyecto. <br>
+Ejecutar los siguientes pasos desde una interfaz de linea de comandos <br>
+Como requisitos se debe tener instalado los siguientes programas: <br>
 - git
 - php v.7.2 +
 - gestor de DB SQL v.14 + (mysql, workbench, etc)
 
 
 1. Obtener codigo del proyecto
-  crear e ingresar a la carpeta donde se desee alojar el proyecto
   ```
   git init
   git clone https://github.com/HYAR7E/atime_demo
@@ -25,7 +24,7 @@ Como requisitos se debe tener instalado los siguientes programas:
   ```
   php composer.phar install
   ```
-3. Iniciar el servicio de base de datos "mysql"
+3. Iniciar el servicio de base de datos "mysql" <br>
   Ejemplo en linux:
   ```
   sudo service mysql start
@@ -37,6 +36,8 @@ Como requisitos se debe tener instalado los siguientes programas:
 5. Abrir la pagina web: en un navegador web ingrese a la dirección **127.0.0.1:8000**
 
 6. Ingresar al sistema. Por defecto hay 3 cuentas *testing* <br>
-  - Administrador: test123@test123 | test123test123 <br>
-  - Docente: teacher123@teacher123 | teacher123teacher123 <br>
-  - Alumno: student123@student123 | student123student123 <br>
+```
+  - Administrador: test123@test123 | test123test123
+  - Docente: teacher123@teacher123 | teacher123teacher123
+  - Alumno: student123@student123 | student123student123
+```

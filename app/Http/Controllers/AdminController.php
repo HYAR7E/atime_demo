@@ -36,8 +36,8 @@ class AdminController extends Controller {
     return view('admin.crear_tema')->with('temas', Tema::orderBy('created_at', 'desc')->get());
   }
   public function create_test(){
-    // $tests = Test::where('autor_id', Auth::user()->id);
-    $tests = Test::all();
+    $tests = Test::where('autor_id', Auth::user()->id)->get();
+    // $tests = Test::all();
     $cursos = Curso::all();
     $temas = Tema::all();
     return view('admin.crear_test')
@@ -52,6 +52,12 @@ class AdminController extends Controller {
   public function rule_test(){
     $tests = Test::all();
     return view('admin.rule_test')
+      ->with('tests', $tests)
+      ->with('hiddennav', 'single-column');
+  }
+  public function rule_test_docente(){
+    $tests = Test::where('autor_id', Auth::user()->id)->get();
+    return view('admin.rule_test_docente')
       ->with('tests', $tests)
       ->with('hiddennav', 'single-column');
   }
@@ -87,6 +93,10 @@ class AdminController extends Controller {
   public function preview_test(Request $req, $id){
     $test = Test::find($id);
     return view('admin.preview_test')->with('test', $test);
+  }
+  public function preview_test_docente(Request $req, $id){
+    $test = Test::find($id);
+    return view('admin.preview_test_docente')->with('test', $test);
   }
 
   // POST (ep: end point)
@@ -231,12 +241,12 @@ class AdminController extends Controller {
     $test = Test::find($data['test-id']);
 
     // If test has no questions
-    if($test->count_q()<1) return $this->rule_test()->with('msg', false);
+    if($test->count_q()<1) return $this->rule_test_docente()->with('msg', false);
 
     $test->publicado = true;
     $test->save();
 
     // Create test
-    return redirect()->route('intra')->with('msg', true);
+    return back()->with('msg', true);
   }
 }

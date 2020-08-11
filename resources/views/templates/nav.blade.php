@@ -4,6 +4,10 @@
 @yield('title', 'Intranet')
 @endsection
 
+@section('t-js-el')
+@yield('js-el')
+@endsection
+
 @section('t-css')
 @yield('css')
 <style media="screen">
@@ -43,7 +47,7 @@
       <!-- Logo -->
       <!-- ============================================================== -->
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{{route('index')}}">
           <!-- Logo icon -->
           <b>
             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -99,15 +103,14 @@
     <nav class="sidebar-nav">
       <ul id="sidebarnav">
         <li class="nav-small-cap">Paginas</li>
-        <li>
-          <a href="{{route('list-test')}}" aria-expanded="false"><i class="fas fa-tasks"></i><span class="hide-menu"> Tests</span></a>
-        </li>
-        <li>
-          <a href="{{route('course')}}" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu"> Cursos</span></a>
-        </li>
-        <li>
-          <a href="{{route('performance')}}" aria-expanded="false"><i class="mdi mdi-chart-areaspline"></i><span class="hide-menu"> Rendimiento</span></a>
-        </li>
+        @if(Auth::user()->rol->id==2)
+        <li><a href="{{route('docente-create_test')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Test</span></a></li>
+        <li><a href="{{route('docente-rule_test')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Manejar Test</span></a></li>
+        @elseif(Auth::user()->rol->id==3)
+        <li><a href="{{route('list-test')}}" aria-expanded="false"><i class="fas fa-tasks"></i><span class="hide-menu"> Tests</span></a></li>
+        <li><a href="{{route('course')}}" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu"> Cursos</span></a></li>
+        <li><a href="{{route('performance')}}" aria-expanded="false"><i class="mdi mdi-chart-areaspline"></i><span class="hide-menu"> Rendimiento</span></a></li>
+        @endif
       </ul>
     </nav>
     <!-- End Sidebar navigation -->

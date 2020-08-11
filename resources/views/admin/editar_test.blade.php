@@ -1,4 +1,4 @@
-@extends('admin.nav')
+@extends('templates.nav')
 @section('title', 'Crear test')
 
 @section('css')
@@ -7,10 +7,9 @@
 
 @section('js-el')
 <script src="{{asset('material-pro/assets/plugins/select2/dist/js/select2.full.min.js')}}"></script>
-@endsection
-
-@section('js-code')
+<script>
 $('.select2').select2();
+</script>
 @endsection
 
 @section('content')

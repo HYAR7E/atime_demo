@@ -15,7 +15,7 @@ class CreatePreguntasTable extends Migration {
       $table->string('alternativa_3')->nullable();
       $table->string('alternativa_4')->nullable();
       $table->string('alternativa_5')->nullable();
-      $table->string('respuesta');
+      $table->string('respuesta')->nullable();
       $table->time('tiempo_limite', 0)->nullable();
       $table->foreignId('test_id');
       $table->foreignId('tema_id');
