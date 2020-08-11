@@ -16,27 +16,27 @@ Como requisitos se debe tener instalado los siguientes programas:
 
 
 1. Obtener codigo del proyecto
-    crear e ingresar a la carpeta donde se desee alojar el proyecto
-    ```
-    git init
-    git clone https://github.com/HYAR7E/atime_demo
-    ```
+  crear e ingresar a la carpeta donde se desee alojar el proyecto
+  ```
+  git init
+  git clone https://github.com/HYAR7E/atime_demo
+  ```
 2. Instalar dependencias del proyecto
-    ```
-    php composer.phar install
-    ```
+  ```
+  php composer.phar install
+  ```
 3. Iniciar el servicio de base de datos "mysql"
-    Ejemplo en linux:
-    ```
-    sudo service mysql start
-    ```
+  Ejemplo en linux:
+  ```
+  sudo service mysql start
+  ```
 4. Iniciar el proyecto
-    ```
-    php artisan serve
-    ```
+  ```
+  php artisan serve
+  ```
 5. Abrir la pagina web: en un navegador web ingrese a la dirección **127.0.0.1:8000**
 
-6. Ingresar al sistema. Por defecto hay 3 cuentas *testing*
-    Administrador: test123@test123 | test123test123
-    Docente: teacher123@teacher123 | teacher123teacher123
-    Alumno: student123@student123 | student123student123
+6. Ingresar al sistema. Por defecto hay 3 cuentas *testing* <br>
+  - Administrador: test123@test123 | test123test123 <br>
+  - Docente: teacher123@teacher123 | teacher123teacher123 <br>
+  - Alumno: student123@student123 | student123student123 <br>
