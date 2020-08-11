@@ -5,6 +5,7 @@
 @endsection
 
 @section('t-js-el')
+<script src="{{asset('material-pro/assets/material/js/jquery.slimscroll.js')}}"></script>
 @yield('js-el')
 @endsection
 
@@ -91,42 +92,44 @@
   <!-- Left Sidebar - style you can find in sidebar.scss  -->
   <!-- ============================================================== -->
   <aside class="left-sidebar">
-    <!-- User profile -->
-    <div class="user-profile">
-      <!-- User profile image -->
-      <!-- <div class="profile-img"> <img src="../assets/images/users/1.jpg" alt="user" /> </div> -->
-      <!-- User profile text-->
-      <div class="profile-text">
-        <a href="{{route('profile', [Auth::user()->id])}}">
-          {{Auth::user()->nickname." - ".Auth::user()->institucion->nombre}}
-        </a>
+    <div class="scroll-sidebar">
+      <!-- User profile -->
+      <div class="user-profile">
+        <!-- User profile image -->
+        <!-- <div class="profile-img"> <img src="../assets/images/users/1.jpg" alt="user" /> </div> -->
+        <!-- User profile text-->
+        <div class="profile-text">
+          <a href="{{route('profile', [Auth::user()->id])}}">
+            {{Auth::user()->nickname." - ".Auth::user()->institucion->nombre}}
+          </a>
+        </div>
       </div>
+      <!-- End User profile text-->
+      <!-- Sidebar navigation-->
+      <nav class="sidebar-nav">
+        <ul id="sidebarnav">
+          <li class="nav-small-cap">Paginas</li>
+          <li><a href="{{route('admin-rule_usuarios')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Manejar Usuarios</span></a></li>
+          <li><a href="{{route('admin-rule_test')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Manejar Test</span></a></li>
+          <li><a href="{{route('admin-create_institucion')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Institucion</span></a></li>
+          <li><a href="{{route('admin-create_rol')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Rol</span></a></li>
+          <li><a href="{{route('admin-create_curso')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Curso</span></a></li>
+          <li><a href="{{route('admin-create_tema')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Tema</span></a></li>
+          <li><a href="{{route('admin-create_test')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Test</span></a></li>
+        </ul>
+      </nav>
+      <!-- End Sidebar navigation -->
+      <!-- Bottom points-->
+      <div class="sidebar-footer">
+        <!-- item-->
+        <a href="{{route('config')}}" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+        <!-- item-->
+        <a href="{{route('intra')}}" class="link" data-toggle="tooltip" title="Intranet"><i class="fas fa-user"></i></a>
+        <!-- item-->
+        <a href="{{route('logout')}}" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
+      </div>
+      <!-- End Bottom points-->
     </div>
-    <!-- End User profile text-->
-    <!-- Sidebar navigation-->
-    <nav class="sidebar-nav">
-      <ul id="sidebarnav">
-        <li class="nav-small-cap">Paginas</li>
-        <li><a href="{{route('admin-rule_usuarios')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Manejar Usuarios</span></a></li>
-        <li><a href="{{route('admin-rule_test')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Manejar Test</span></a></li>
-        <li><a href="{{route('admin-create_institucion')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Institucion</span></a></li>
-        <li><a href="{{route('admin-create_rol')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Rol</span></a></li>
-        <li><a href="{{route('admin-create_curso')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Curso</span></a></li>
-        <li><a href="{{route('admin-create_tema')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Tema</span></a></li>
-        <li><a href="{{route('admin-create_test')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Test</span></a></li>
-      </ul>
-    </nav>
-    <!-- End Sidebar navigation -->
-    <!-- Bottom points-->
-    <div class="sidebar-footer">
-      <!-- item-->
-      <a href="{{route('config')}}" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
-      <!-- item-->
-      <a href="{{route('intra')}}" class="link" data-toggle="tooltip" title="Intranet"><i class="fas fa-user"></i></a>
-      <!-- item-->
-      <a href="{{route('logout')}}" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
-    </div>
-    <!-- End Bottom points-->
   </aside>
   <!-- ============================================================== -->
   <!-- End Left Sidebar - style you can find in sidebar.scss  -->

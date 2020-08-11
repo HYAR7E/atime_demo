@@ -20,7 +20,7 @@
   <script src="{{ asset('/material-pro/assets/plugins/jquery/jquery.min.js')}}"></script>
 </head>
 
-<body class="card-no-border {{$hiddennav??''}}">
+<body class="card-no-border {{$hiddennav??'fix-sidebar'}}">
   <!-- Preloader -->
   <div class="preloader">
     <svg class="circular" viewBox="25 25 50 50">

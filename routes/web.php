@@ -21,6 +21,7 @@ Route::prefix('nav')->group(function(){
   Route::get('/', 'IntraController@index')->name("intra");
   Route::get('/configuracion', 'IntraController@configuracion')->name("config");
   Route::get('/tests', 'IntraController@tests')->name("av-test");
+  Route::get('/test/do/{id}', 'IntraController@do_test')->name("do-test");
   Route::get('/cursos', 'IntraController@cursos')->name("course");
   Route::get('/curso/{id}', 'IntraController@detallecurso')->name("course-detail");
   Route::get('/rendimiento', 'IntraController@rendimiento')->name("performance");

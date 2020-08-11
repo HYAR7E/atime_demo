@@ -11,4 +11,7 @@ class Curso extends Model {
   public function count_tests(){
     return CursoXTest::where('curso_id', $this->id)->count();
   }
+  public function tests(){
+    return $this->hasMany('App\CursoXTest');
+  }
 }

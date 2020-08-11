@@ -31,6 +31,7 @@ $(".tab-wizard").steps({
 
 @section('content')
 <div class="wizard-content card card-body">
+  <h4 class="card-title">{{$test->titulo}}</h4>
   <form action="#" class="tab-wizard wizard-circle">
     <br>
     @foreach($test->preguntas as $q)

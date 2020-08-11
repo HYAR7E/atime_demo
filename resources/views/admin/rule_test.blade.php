@@ -3,11 +3,14 @@
 
 @section('css')
 <style media="screen">
+.zoom-out {
+  zoom: 0.9;
+}
 </style>
 @endsection
 
 @section('content')
-<div class="row">
+<div class="row zoom-out">
   <div class="col-lg-12">
     <div class="card">
       <div class="card-body">
@@ -59,7 +62,9 @@
                 </td>
                 <td>
                   <div class="btn-group">
-                    <button type="submit" class="btn btn-warning">Editar</button>
+                    <form action="{{route('admin-edit_test', ['id' => $t->id])}}" method="GET">
+                      <button type="submit" class="btn btn-warning">Editar</button>
+                    </form>
                     <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <span class="sr-only"></span>
                     </button>

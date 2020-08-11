@@ -100,7 +100,7 @@
       <ul id="sidebarnav">
         <li class="nav-small-cap">Paginas</li>
         <li>
-          <a href="{{route('av-test')}}" aria-expanded="false"><i class="fas fa-tasks"></i><span class="hide-menu"> Examenes</span></a>
+          <a href="{{route('av-test')}}" aria-expanded="false"><i class="fas fa-tasks"></i><span class="hide-menu"> Tests</span></a>
         </li>
         <li>
           <a href="{{route('course')}}" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu"> Cursos</span></a>
@@ -113,11 +113,12 @@
     <!-- End Sidebar navigation -->
     <!-- Bottom points-->
     <div class="sidebar-footer">
-      <!-- item-->
+      <!-- settings -->
       <a href="{{route('config')}}" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
-      <!-- item-->
+      @if(Auth::user()->rol_id==1) <!-- admin-->
       <a href="{{route('admin-rule')}}" class="link" data-toggle="tooltip" title="Admin"><i class="fas fa-user-secret"></i></a>
-      <!-- item-->
+      @endif
+      <!-- logout -->
       <a href="{{route('logout')}}" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
     </div>
     <!-- End Bottom points-->
