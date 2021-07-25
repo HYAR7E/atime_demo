@@ -77,7 +77,7 @@ class IntraController extends Controller {
       }
 
       // Calc performance
-      $uxt->nota = round($is_correct/$n_q, 2);
+      $uxt->nota = round($is_correct*20/$n_q, 2);
       $uxt->save();
     }else return false;
 

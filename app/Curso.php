@@ -14,4 +14,7 @@ class Curso extends Model {
   public function tests(){
     return $this->hasMany('App\CursoXTest');
   }
+  public function docente(){
+    return $this->belongsTo('App\Docente');
+  }
 }

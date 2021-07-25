@@ -45,6 +45,7 @@ Route::prefix('admin_rules')->group(function(){
   Route::get('/crear/test', 'AdminController@create_test')->name("docente-create_test");
   Route::get('/editar/test/{id}', 'AdminController@edit_test')->name("docente-edit_test");
   Route::get('/editar/test/{id}/pregunta', 'AdminController@edit_test_question')->name("docente-edit_test_question");
+  Route::get('/test/{id}/notas', 'AdminController@upload_scores_view')->name("docente-upload_scores_view");
   // POST
   Route::post('/crear/curso', 'AdminController@ep_create_curso')->name("ep_admin-create_curso");
   Route::post('/crear/tema', 'AdminController@ep_create_tema')->name("ep_admin-create_tema");
@@ -54,6 +55,13 @@ Route::prefix('admin_rules')->group(function(){
   Route::post('/editar/test/{id}', 'AdminController@ep_edit_test')->name("ep_admin-edit_test");
   Route::post('/editar/test/{id}/pregunta', 'AdminController@ep_edit_test_question')->name("ep_admin-edit_test_question");
   Route::post('/test', 'AdminController@ep_publish_test')->name("ep_admin-publish_test");
+  Route::post('/subir/test/{id}/notas', 'AdminController@upload_scores')->name("ep_admin-upload_scores");
+  // Excel
+  // Route::get('/excel/report', 'ExcelController@export')->name("excel-export");
+  Route::post('/excel/report/import', 'ExcelController@import')->name("excel-import");
+  Route::get('/excel/report/export', 'ExcelController@export')->name("excel-export");
+  Route::get('/excel/import', 'ExcelController@import_view')->name("excel-import_view");
+  Route::get('/msg/send', 'ExcelController@send_msg')->name("excel-send_msg");
 });
 
 // Authentication routes

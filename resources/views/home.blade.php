@@ -37,9 +37,6 @@
     background-color: #0003;
   }
   .footer,
-  .topbar {
-    background-color: #0008;
-  }
   .main-card {
     margin-top: 6em;
     vertical-align: top;
@@ -51,7 +48,6 @@
     display: inline-block;
   }
   .card * {
-    color: #aaa;
   }
   .main-card .card-body h2 {
     color: black;
@@ -63,7 +59,6 @@
     font-family: sans-serif;
   }
   .footer {
-    color: white;
     position: relative;
     bottom: 0;
   }

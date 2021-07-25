@@ -114,6 +114,10 @@
           <li><a href="{{route('admin-create_rol')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Rol</span></a></li>
           <li><a href="{{route('admin-create_curso')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Curso</span></a></li>
           <li><a href="{{route('admin-create_tema')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Crear Tema</span></a></li>
+
+          <li><a href="{{route('excel-import_view')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Importar Reporte</span></a></li>
+          <li><a href="{{route('excel-export')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> Exportar Reporte</span></a></li>
+          <li><a href="{{route('excel-send_msg')}}"><i class="fas fa-tasks"></i><span class="hide-menu"> *Enviar Mensaje</span></a></li>
         </ul>
       </nav>
       <!-- End Sidebar navigation -->

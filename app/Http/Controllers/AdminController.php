@@ -98,6 +98,9 @@ class AdminController extends Controller {
     $test = Test::find($id);
     return view('admin.preview_test_docente')->with('test', $test);
   }
+  public function upload_scores(Request $req, $id){
+    return view('admin.preview_test_docente')->with('test', $test);
+  }
 
   // POST (ep: end point)
   public function ep_create_institucion(Request $req){

@@ -2,7 +2,7 @@
 
 @section('t-css')
 <style>
-  /* background-image */
+  /* background-image
   .background-image {
     position: fixed;
     content: "";
@@ -16,6 +16,7 @@
     background-position-x: center;
     filter: hue-rotate(0deg);
   }
+  */
   .fake-div-container {
     position: relative;
   }

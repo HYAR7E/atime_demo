@@ -12,7 +12,7 @@ class UserXTest extends Model {
   public function test(){
     return $this->belongsTo('App\Test');
   }
-  public function autor(){
+  public function user(){
     return $this->belongsTo('App\Usuario');
   }
 }
